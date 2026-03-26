@@ -18,6 +18,11 @@ int main()
 
         // Take the command input
         std::getline(std::cin, input);
+
+        // Exit if the command is exit
+        if (input == "exit")
+            break;
+
         std::cout << input << ": command not found" << std::endl;
     }
 
