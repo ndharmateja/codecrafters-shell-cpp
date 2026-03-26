@@ -1,6 +1,12 @@
 #include <iostream>
 #include <string>
 
+std::string_view get_args_string(std::string input)
+{
+    // Using string view instead of a substring to prevent reallocation
+    std::string_view message(input.begin() + 5, input.end());
+}
+
 int main()
 {
     // Flush after every std::cout / std:cerr
@@ -26,11 +32,8 @@ int main()
         // Implement echo
         if (input.starts_with("echo "))
         {
-            // Using string view instead of a substring to prevent reallocation
-            std::string_view message(input.begin() + 5, input.end());
-
             // Echo message
-            std::cout << message << std::endl;
+            std::cout << get_args_string(input) << std::endl;
             continue;
         }
 
