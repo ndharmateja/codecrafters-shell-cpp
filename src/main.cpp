@@ -29,7 +29,7 @@ int main()
         if (command.execute())
             continue;
         else
-            return;
+            break;
     }
 
     return 0;
