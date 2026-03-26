@@ -19,9 +19,20 @@ int main()
         // Take the command input
         std::getline(std::cin, input);
 
-        // Exit if the command is exit
+        // Implement exit
         if (input == "exit")
             break;
+
+        // Implement echo
+        if (input.starts_with("echo "))
+        {
+            // Using string view instead of a substring to prevent reallocation
+            std::string_view message(input.begin() + 5, input.end());
+
+            // Echo message
+            std::cout << message << std::endl;
+            continue;
+        }
 
         std::cout << input << ": command not found" << std::endl;
     }
