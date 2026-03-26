@@ -9,4 +9,9 @@ int main()
 
     // Print the prompt for the shell
     std::cout << "$ ";
+
+    // Take the command input
+    std::string command;
+    std::getline(std::cin, command);
+    std::cout << command << ": command not found" << std::endl;
 }
