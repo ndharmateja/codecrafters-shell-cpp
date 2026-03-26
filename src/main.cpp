@@ -7,11 +7,17 @@ int main()
     std::cout << std::unitbuf;
     std::cerr << std::unitbuf;
 
-    // Print the prompt for the shell
-    std::cout << "$ ";
-
-    // Take the command input
+    // input string to store the user input
     std::string input;
-    std::getline(std::cin, input);
-    std::cout << input << ": command not found" << std::endl;
+
+    // Loop to run REPL
+    while (true)
+    {
+        // Print the prompt for the shell
+        std::cout << "$ ";
+
+        // Take the command input
+        std::getline(std::cin, input);
+        std::cout << input << ": command not found" << std::endl;
+    }
 }
