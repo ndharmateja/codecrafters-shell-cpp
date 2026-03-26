@@ -7,5 +7,6 @@ int main()
     std::cout << std::unitbuf;
     std::cerr << std::unitbuf;
 
+    // Print the prompt for the shell
     std::cout << "$ ";
 }
