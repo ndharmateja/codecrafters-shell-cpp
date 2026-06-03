@@ -26,7 +26,7 @@ int main()
             std::cout << command.substr(5) << std::endl;
 
         // Handle type command
-        if (command.starts_with("type"))
+        else if (command.starts_with("type"))
         {
             std::string_view arg_string = std::string_view(command).substr(5);
             if (arg_string == "type" || arg_string == "echo" || arg_string == "exit")
