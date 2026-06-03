@@ -4,7 +4,13 @@
 #include <vector>
 #include <iostream>
 #include <cctype>
-#include "command.h"
+
+#include "command.hpp"
+#include "echo.hpp"
+#include "empty.hpp"
+#include "exit.hpp"
+#include "invalid.hpp"
+#include "type.hpp"
 
 class CommandParser
 {
@@ -87,20 +93,28 @@ private:
     }
 
 public:
-    static std::vector<std::string> parse_command(const std::string &cmd_str)
+    static std::unique_ptr<Command> parse_command(const std::string &cmd_str)
     {
         // Split the command string into parts removing the extra whitespaces
         std::vector<std::string> parts;
         split_cmd_str(cmd_str, parts);
 
-        // If the parts vector is empty we can return the empty vector
+        // If the parts vector is empty we can return the empty command
         if (parts.empty())
-            return parts;
+            return std::make_unique<Empty>();
 
         // Make the first element of the vector (the command itself) lowercase
-        convert_to_lower_case(parts.front());
+        std::string &command{parts.front()};
+        convert_to_lower_case(command);
 
-        // At this point it is an invalid command
-        return parts;
+        // Parse the appropriate command and return the command
+        if (command == "echo")
+            return std::make_unique<Echo>(parts);
+        if (command == "exit")
+            return std::make_unique<Exit>();
+        if (command == "type")
+            return std::make_unique<Type>(parts);
+
+        return std::make_unique<Invalid>(parts);
     }
 };
