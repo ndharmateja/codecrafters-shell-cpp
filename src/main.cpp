@@ -25,6 +25,16 @@ int main()
         if (command.starts_with("echo"))
             std::cout << command.substr(5) << std::endl;
 
+        // Handle type command
+        if (command.starts_with("type"))
+        {
+            std::string_view arg_string = std::string_view(command).substr(5);
+            if (arg_string == "type" || arg_string == "echo" || arg_string == "exit")
+                std::cout << arg_string << " is a shell builtin" << std::endl;
+            else
+                std::cout << arg_string << ": not found" << std::endl;
+        }
+
         else
             std::cout << command << ": command not found" << std::endl;
     }
