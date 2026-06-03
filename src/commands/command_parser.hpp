@@ -16,7 +16,7 @@
 class CommandParser
 {
 private:
-    static std::vector<std::string> split_cmd_str(const std::string &cmd_str, std::vector<std::string> &parts)
+    static void split_cmd_str(const std::string &cmd_str, std::vector<std::string> &parts)
     {
         // Parse the string character by character removing extra spaces
         // and accumulate the command parts in the vector
@@ -72,9 +72,6 @@ private:
         // So we need to process that
         if (processing_word)
             parts.push_back(buffer);
-
-        // Return the result
-        return parts;
     }
 
     /**
