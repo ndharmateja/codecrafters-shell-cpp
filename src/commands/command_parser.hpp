@@ -23,12 +23,8 @@ private:
         unsigned char c;
         size_t i{0}, n{cmd_str.size()};
 
-        // Skip the initial whitespace characters
-        while (i < n && std::isspace(cmd_str[i]))
-            i++;
-
         // We can start processing the word
-        bool processing_word{true};
+        bool processing_word{false};
         std::string buffer;
         while (i < n)
         {
