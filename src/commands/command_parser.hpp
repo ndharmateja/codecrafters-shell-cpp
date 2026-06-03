@@ -80,10 +80,8 @@ private:
      */
     static void convert_to_lower_case(std::string &str)
     {
-        size_t i{0}, n{str.size()};
-        unsigned char c;
-        while (i < n)
-            str[i++] = std::tolower(str[i]);
+        for (char &c : str)
+            c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
     }
 
 public:
