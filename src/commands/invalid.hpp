@@ -9,7 +9,7 @@ private:
     std::string command;
 
 public:
-    explicit Invalid(const std::vector<std::string> &parts) : command{std::move(parts.front())} {}
+    explicit Invalid(std::vector<std::string> &parts) : command{std::move(parts.front())} {}
 
     // Invalid command needs to print the invalid command message
     void execute() override

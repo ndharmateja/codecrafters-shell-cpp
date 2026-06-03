@@ -11,7 +11,7 @@ private:
     std::vector<std::string> parts;
 
 public:
-    explicit Type(const std::vector<std::string> &parts) : parts{std::move(parts)} {}
+    explicit Type(std::vector<std::string> &parts) : parts{std::move(parts)} {}
 
     // Type command needs to print the type of the given argument
     void execute() override

@@ -11,7 +11,7 @@ private:
     std::vector<std::string> parts;
 
 public:
-    explicit Echo(const std::vector<std::string> &parts) : parts{std::move(parts)} {}
+    explicit Echo(std::vector<std::string> &parts) : parts{std::move(parts)} {}
 
     // Echo command needs to print all the remaining parts of the command
     // except the command itself
