@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <cctype>
+#include <memory>
 
 #include "command.hpp"
 #include "echo.hpp"
